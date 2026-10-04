@@ -1,0 +1,87 @@
+/* ---------- Login ---------- */
+.login-wrap { display: flex; min-height: 100vh; }
+.login-hero { flex: 1; background: linear-gradient(140deg, #102C57, #173F7A 55%, #245A91); color: #fff; padding: 60px 50px; display: flex; flex-direction: column; justify-content: center; }
+.login-hero h1 { font-size: clamp(24px, 3.5vw, 38px); font-weight: 800; letter-spacing: -.02em; max-width: 520px; }
+.login-hero p { color: #C7D8EF; font-size: 15px; margin: 16px 0 28px; max-width: 480px; line-height: 1.6; }
+.login-hero .flow { display: flex; flex-wrap: wrap; gap: 10px; max-width: 520px; }
+.login-hero .flow span { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.18); padding: 8px 14px; border-radius: 999px; font-size: 12.5px; font-weight: 600; }
+.login-form { width: 440px; max-width: 100%; display: flex; align-items: center; justify-content: center; padding: 40px 30px; background: var(--bg); }
+.login-card { width: 100%; max-width: 360px; }
+.logo-app { margin-bottom: 4px; }
+.logo-app img { max-width: 220px; height: auto; }
+.logo-app-sub { font-size: 13px; color: var(--ink-3); margin-bottom: 22px; font-weight: 600; }
+.demo-users { margin-top: 18px; display: grid; gap: 7px; }
+.demo-users button { display: flex; align-items: center; gap: 10px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 8px 12px; text-align: left; transition: border-color var(--t); }
+.demo-users button:hover { border-color: var(--brand); }
+.demo-users .who b { display: block; font-size: 13px; }
+.demo-users .who span { font-size: 11.5px; color: var(--ink-3); }
+@media (max-width: 860px) { .login-hero { display: none; } .login-form { width: 100%; } }
+
+/* ---------- Página pública ---------- */
+.pub-nav { background: var(--surface); border-bottom: 1px solid var(--border); padding: 14px 26px; display: flex; align-items: center; gap: 12px; position: sticky; top: 0; z-index: 20; }
+.pub-hero { background: linear-gradient(140deg, #102C57, #173F7A 55%, #245A91); color: #fff; text-align: center; padding: 70px 22px; }
+.pub-hero h1 { font-size: clamp(28px, 5vw, 46px); font-weight: 800; }
+.pub-hero p { color: #C7D8EF; font-size: 16.5px; margin-top: 10px; }
+.pub-wrap { max-width: 1000px; margin: 0 auto; padding: 40px 22px 80px; }
+.pub-ev { margin-bottom: 46px; }
+.pub-ev h2 { font-size: 24px; }
+.pub-ev .dt { color: var(--brand); font-weight: 700; font-size: 12.5px; text-transform: uppercase; letter-spacing: .1em; }
+
+/* ---------- Timeline ---------- */
+.tl { position: relative; padding-left: 30px; }
+.tl::before { content: ''; position: absolute; left: 9px; top: 0; bottom: 0; width: 2px; background: var(--border); }
+.tl-item { position: relative; margin-bottom: 22px; }
+.tl-item::before { content: ''; position: absolute; left: -26px; top: 4px; width: 14px; height: 14px; border-radius: 50%; background: var(--primary-2); border: 3px solid var(--surface); box-shadow: 0 0 0 2px var(--border); }
+.tl-item .tl-date { font-size: 12px; font-weight: 700; color: var(--brand); text-transform: uppercase; letter-spacing: .06em; }
+.tl-item .tl-title { font-size: 15px; font-weight: 700; margin: 3px 0 4px; }
+.tl-item .tl-desc { font-size: 13px; color: var(--ink-2); }
+
+/* ---------- Galeria (lightbox) ---------- */
+.lightbox { position: fixed; inset: 0; z-index: 90; background: rgba(10,16,28,.92); display: flex; align-items: center; justify-content: center; flex-direction: column; animation: fadeIn .2s ease; }
+.lb-stage { position: relative; display: flex; align-items: center; justify-content: center; width: 100%; flex: 1; min-height: 0; padding: 0 64px; }
+.lb-img { max-width: 100%; max-height: calc(100vh - 130px); object-fit: contain; border-radius: 10px; box-shadow: 0 20px 60px rgba(0,0,0,.5); user-select: none; animation: lbIn .22s ease; }
+@keyframes lbIn { from { opacity: 0; transform: scale(.97) } to { opacity: 1; transform: scale(1) } }
+.lb-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 46px; height: 46px; border-radius: 50%; border: 1px solid rgba(255,255,255,.25); background: rgba(255,255,255,.1); color: #fff; font-size: 20px; display: grid; place-items: center; transition: background .15s; }
+.lb-btn:hover { background: rgba(255,255,255,.22); }
+.lb-btn.prev { left: 12px; } .lb-btn.next { right: 12px; }
+.lb-close { position: absolute; top: 14px; right: 14px; z-index: 2; width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(255,255,255,.25); background: rgba(255,255,255,.1); color: #fff; display: grid; place-items: center; transition: background .15s; }
+.lb-close:hover { background: rgba(255,255,255,.22); }
+.lb-bar { padding: 12px 20px 18px; text-align: center; color: #E7EEF8; }
+.lb-bar .cap { font-size: 14px; font-weight: 600; }
+.lb-bar .ctx { font-size: 12px; color: #9FB2CC; margin-top: 2px; }
+.lb-count { display: inline-block; margin-top: 7px; font-size: 11.5px; font-weight: 700; letter-spacing: .06em; background: rgba(255,255,255,.12); border-radius: 999px; padding: 3px 12px; color: #CFE0F5; }
+@media (max-width: 640px) { .lb-stage { padding: 0 8px; } .lb-btn { width: 42px; height: 42px; } .lb-btn.prev { left: 6px; } .lb-btn.next { right: 6px; } .lb-img { max-height: calc(100vh - 150px); border-radius: 8px; } }
+
+/* ---------- Retrospectiva ---------- */
+.retro-hero { background: linear-gradient(135deg, #102C57, #173F7A 55%, #245A91); border-radius: 20px; color: #fff; padding: 40px 34px; text-align: center; position: relative; overflow: hidden; }
+.retro-hero h1 { font-size: clamp(26px, 4vw, 40px); font-weight: 800; }
+.retro-hero p { color: #C7D8EF; margin-top: 8px; }
+.retro-num { text-align: center; padding: 18px 8px; }
+.retro-num .n { font-size: clamp(24px, 3vw, 34px); font-weight: 800; color: var(--brand); letter-spacing: -.03em; }
+.retro-num .l { font-size: 12px; color: var(--ink-2); font-weight: 600; }
+.carrossel { position: relative; border-radius: var(--radius-lg); overflow: hidden; background: var(--primary-deep); box-shadow: var(--shadow); }
+.carr-track { display: flex; transition: transform .45s cubic-bezier(.4,0,.2,1); }
+.carr-slide { min-width: 100%; height: 340px; display: grid; place-items: center; }
+.carr-slide img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ---------- Histórias ---------- */
+.story-sec img { width: 100%; border-radius: 14px; margin-top: 14px; box-shadow: var(--shadow); }
+.story-intro { font-size: 16.5px; color: var(--ink-2); line-height: 1.7; margin: 26px 0; }
+.hl-box { background: var(--warn-soft); border: 1px solid color-mix(in srgb, var(--warn) 35%, transparent); border-radius: 14px; padding: 20px 22px; }
+.hl-box li { margin-left: 18px; padding: 3px 0; font-size: 14px; }
+
+/* ---------- Newsletter ---------- */
+.nl-preview { border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; background: var(--surface); }
+.nl-preview-head { background: linear-gradient(135deg, var(--primary), var(--primary-2)); color: #fff; padding: 20px 24px; }
+.nl-preview-body { padding: 20px 24px; }
+
+/* ---------- Calendário ---------- */
+.cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; }
+.cal-head { text-align: center; font-size: 11px; font-weight: 700; color: var(--ink-3); padding: 6px 0; text-transform: uppercase; letter-spacing: .06em; }
+.cal-day { aspect-ratio: 1; border: 1px solid var(--border-soft); border-radius: 8px; padding: 6px; font-size: 12px; position: relative; background: var(--surface); min-height: 60px; }
+.cal-day.empty { background: transparent; border: none; }
+.cal-day.today { border-color: var(--brand); border-width: 2px; }
+.cal-day .dn { font-weight: 700; font-size: 11px; color: var(--ink-3); }
+.cal-day .ev { display: block; font-size: 10px; font-weight: 600; background: var(--brand-soft); color: var(--brand); padding: 2px 5px; border-radius: 4px; margin-top: 3px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; cursor: pointer; }
+.cal-day .ev:hover { background: var(--brand); color: #fff; }
+@media (max-width: 640px) { .cal-grid { gap: 3px; } .cal-day { min-height: 44px; padding: 3px; } .cal-day .ev { font-size: 8px; padding: 1px 3px; } }

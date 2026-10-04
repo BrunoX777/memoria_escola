@@ -1,0 +1,104 @@
+/* ============================================================
+   MEMÓRIA ESCOLA — Design Tokens
+   Paleta: azul institucional #173F7A / #245A91 / #3B82C4
+   + índigo #6366F1 (recursos inteligentes) + cinzas.
+   Tema claro + escuro via [data-theme] no <html>.
+   ============================================================ */
+:root {
+  --primary: #173F7A;
+  --primary-2: #245A91;
+  --primary-3: #3B82C4;
+  --primary-deep: #102C57;
+  --primary-light: #EAF2F8;
+  --accent: #245A91;
+  --ai: #6366F1;
+  --ai-text: #4F46E5;
+  --ai-soft: #EEF2FF;
+  --ai-border: #C7D2FE;
+  --bg: #F6F8FB;
+  --surface: #FFFFFF;
+  --surface-2: #FBFCFE;
+  --ink: #172033;
+  --ink-2: #43506B;
+  --ink-3: #667085;
+  --border: #E4E7EC;
+  --border-soft: #EEF1F5;
+
+  --brand: var(--primary);
+  --brand-2: #12315F;
+  --brand-soft: var(--primary-light);
+  --laranja: #245A91;
+  --laranja-dark: #173F7A;
+  --laranja-text: #245A91;
+  --laranja-soft: #EAF2F8;
+  --ok: #245A91;
+  --ok-dark: #1D4C7C;
+  --ok-soft: #EAF2F8;
+  --warn: #667085;
+  --warn-soft: #EEF2F6;
+  --warn-text: #475467;
+  --danger: #173F7A;
+  --danger-soft: #173F7A;
+  --danger-text: #F5F8FC;
+
+  --radius: 12px;
+  --radius-lg: 16px;
+  --radius-btn: 8px;
+  --shadow: 0 2px 10px rgba(16,24,40,.05);
+  --shadow-lg: 0 4px 10px rgba(16,24,40,.05), 0 16px 34px -12px rgba(16,24,40,.14);
+  --font: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  --t: .18s cubic-bezier(.4,0,.2,1);
+
+  --dk-bg: var(--surface);
+  --dk-surface: var(--bg);
+  --dk-border: var(--border);
+  --dk-ink: var(--ink);
+  --dk-ink-2: var(--ink-2);
+
+  --sb-bg: #14345F;
+  --sb-bg-2: #102C57;
+  --sb-ink: #B9C9E4;
+  --sb-ink-dim: #8FA6CC;
+  --sb-active: rgba(255,255,255,.1);
+  --sb-hover: rgba(255,255,255,.06);
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --bg: #0F172A;
+  --surface: #131F33;
+  --surface-2: #18263D;
+  --ink: #F8FAFC;
+  --ink-2: #CBD5E1;
+  --ink-3: #94A3B8;
+  --border: #293B55;
+  --border-soft: #223048;
+  --primary-2: #3B82C4;
+  --primary-3: #6BA6E8;
+  --primary-light: #1C3450;
+  --brand: #7FB3E8;
+  --brand-2: #A3C8F0;
+  --brand-soft: #1C3450;
+  --laranja: #3B82C4;
+  --laranja-dark: #2F6BA3;
+  --laranja-text: #8FBCF0;
+  --laranja-soft: #1C3450;
+  --ai: #818CF8;
+  --ai-text: #A5B4FC;
+  --ai-soft: #23264D;
+  --ai-border: #3B3F77;
+  --ok: #8FBCF0;
+  --ok-dark: #8FBCF0;
+  --ok-soft: #1C3450;
+  --warn: #94A3B8;
+  --warn-soft: #223048;
+  --warn-text: #A9B6C9;
+  --danger: #8FBCF0;
+  --danger-soft: #2C4A73;
+  --danger-text: #EAF2FB;
+  --shadow: 0 1px 2px rgba(0,0,0,.25), 0 4px 16px rgba(0,0,0,.3);
+  --shadow-lg: 0 6px 16px rgba(0,0,0,.35), 0 20px 44px -10px rgba(0,0,0,.5);
+  --sb-bg: #0D1B33;
+  --sb-bg-2: #0A1528;
+  color-scheme: dark;
+}
