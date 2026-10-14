@@ -1,0 +1,17 @@
+services:
+  web:
+    image: nginx:alpine
+    restart: on-failure
+    ports:
+      - "3000:80"
+    volumes:
+      # only the app file is served, read-only: edits on the host appear
+      # on the next page load (call reload_preview to refresh the iframe)
+      - ./index.html:/usr/share/nginx/html/index.html:ro
+    healthcheck:
+      # probes real content, not just an open port
+      test: ["CMD-SHELL", "wget -qO- http://localhost/ | grep -q 'Memória Escola' || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 5s
