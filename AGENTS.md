@@ -48,3 +48,6 @@ dev server to run, so after editing `index.html` the preview must be refreshed w
 - External network requests you see in the console are only the Google Fonts ones — the app
   never calls a real API.
 - Language: all UI text is Brazilian Portuguese.
+- Seed titles are not only in `window.__SEED__`: `garantirEstruturas()` in the local server
+  also renames the seed projects `p-sge` / `p-app` / `p-iot`, so an already-stored
+  `memoria_escola_db_v1` picks the change up without clicking "Recomeçar".
