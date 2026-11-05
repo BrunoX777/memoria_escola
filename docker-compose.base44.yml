@@ -8,21 +8,13 @@ services:
       base44.kind: web
       base44.port: "3000"
     working_dir: /srv/app
-    command:
-      - python
-      - -m
-      - http.server
-      - "3000"
-      - --bind
-      - 0.0.0.0
-      - --directory
-      - /srv/app
+    command: ["python", "/srv/app/.base44/serve.py", "3000", "/srv/app"]
     ports:
       - "3000:3000"
     volumes:
       - ./:/srv/app:ro
     healthcheck:
-      test: ["CMD-SHELL", "python -c \"import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://127.0.0.1:3000/').status == 200 else 1)\""]
+      test: ["CMD-SHELL", "python -c \"import urllib.request,sys; r=urllib.request.urlopen(urllib.request.Request('http://127.0.0.1:3000/', method='HEAD')); sys.exit(0 if r.status == 200 else 1)\""]
       interval: 10s
       timeout: 3s
       retries: 5

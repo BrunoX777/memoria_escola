@@ -16,13 +16,19 @@ institutional-memory system. Everything (CSS, JS, fonts fallback, images) lives 
 ```bash
 docker compose -f docker-compose.base44.yml up -d
 ```
-Serves the repository on http://localhost:3000 with the stock `python -m http.server` from the
-`python:3.12-slim` image (source bind-mounted read-only at `/srv/app`).
+Serves the repository on http://localhost:3000 with `.base44/serve.py` (a thin wrapper over
+Python's `SimpleHTTPRequestHandler`) from the `python:3.12-slim` image, source bind-mounted
+read-only at `/srv/app`.
+
+**Why a wrapper:** clients (the preview proxy, health probes) frequently close the connection
+while the ~1.3 MB `index.html` is still streaming, which the stock handler reports as a full
+`ConnectionResetError` traceback in the service log. The wrapper swallows those expected aborts
+and the healthcheck uses `HEAD`, so the log stays signal-only.
 
 **Why not nginx:** the sandbox checkout root is mode `0700`, and nginx drops its workers to the
 `nginx` user, which cannot traverse it — every request returns `403 Forbidden` regardless of how
-the file is mounted. `python -m http.server` runs as root and serves the bind mount fine. Keep
-that in mind before switching the image.
+the file is mounted. `python` runs as root and serves the bind mount fine. Keep that in mind
+before switching the image.
 
 There is nothing to install, migrate or seed. Editing `index.html` is immediately live (a browser
 reload is enough); the container does not need a restart.
